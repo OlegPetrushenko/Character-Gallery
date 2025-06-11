@@ -2,12 +2,9 @@ body {
     margin: 0;
     font-family: Verdana, sans-serif;
     color: rgb(83, 96, 81);
-}
-
-H1 {
-    color: rgb(83, 96, 81);
-    margin: 0;
-    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -15,13 +12,27 @@ header {
     align-items: center;
     justify-content: center;
 
+    gap: 10px;
     position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
     background-color: lightblue;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 10;
+}
+
+main {
+    flex: 1;
+    padding: 15px;
+}
+
+H1 {
+    font-size: 35px;
+}
+
+.header-icons {
+    font-size: 30px;
 }
 
 .gallery {
@@ -45,10 +56,15 @@ header {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    color: lightblue;
+    gap: 10px;
+    color: white;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 2px gray;
     font-weight: bold;
+    font-size: 30px;
     padding: 10px;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .character-card:hover {
@@ -78,4 +94,62 @@ header {
 
 .card6 {
     background-image: url("../img/img6.jpg");
+}
+
+footer {
+    height: 60px;
+    background-color: darkgrey;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 10px;
+    font-size: 30px;
+}
+
+@media (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    header {
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .header-icons,
+    .footer-icons {
+        font-size: 20px;
+        gap: 6px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .character-card {
+        box-shadow: none;
+        font-size: 36px;
+        padding: 15px;
+    }
+
+    footer {
+        height: 40px;
+    }
 }
